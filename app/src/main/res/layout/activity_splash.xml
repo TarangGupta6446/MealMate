@@ -7,60 +7,90 @@
     android:layout_height="match_parent"
     android:background="#FFF8F3">
 
-    <!-- Centered Brand -->
+    <!-- Centered Splash Content -->
     <LinearLayout
         android:id="@+id/splashContent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
+        android:padding="24dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <!-- App Name -->
-        <TextView
-            android:id="@+id/tvSplashTitle"
+        <!-- Original MealMate Serving-Dish Logo -->
+        <ImageView
+            android:id="@+id/ivSplashLogo"
+            android:layout_width="140dp"
+            android:layout_height="140dp"
+            android:src="@drawable/serving_dish"
+            android:scaleType="fitCenter"
+            android:contentDescription="MealMate logo" />
+
+        <!-- MealMate Brand: Black + Orange -->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:fontFamily="sans"
-            android:letterSpacing="-0.02"
-            android:text="MealMate"
-            android:textColor="#FF6B35"
-            android:textSize="42sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
 
-        <!-- Accent Line -->
+            <TextView
+                android:id="@+id/tvSplashTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans"
+                android:letterSpacing="-0.03"
+                android:text="Meal"
+                android:textColor="#171717"
+                android:textSize="42sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="sans"
+                android:letterSpacing="-0.03"
+                android:text="Mate"
+                android:textColor="#FF4B20"
+                android:textSize="42sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Orange Accent Line -->
         <View
-            android:layout_width="42dp"
-            android:layout_height="3dp"
-            android:layout_marginTop="14dp"
-            android:background="#FF6B35" />
+            android:layout_width="48dp"
+            android:layout_height="4dp"
+            android:layout_marginTop="16dp"
+            android:background="#FF4B20" />
 
         <!-- Tagline -->
         <TextView
             android:id="@+id/tvSplashTagline"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginTop="18dp"
             android:fontFamily="sans"
+            android:gravity="center"
             android:letterSpacing="0.02"
-            android:text="Good food. Good mood."
-            android:textColor="#777777"
-            android:textSize="15sp" />
+            android:text="Order Food. Eat Better. Live Smarter."
+            android:textColor="#827773"
+            android:textSize="14sp" />
 
     </LinearLayout>
 
-    <!-- Subtle Bottom Caption -->
+    <!-- Bottom Brand Caption -->
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="28dp"
         android:fontFamily="sans"
-        android:letterSpacing="0.12"
-        android:text="MEALMATE"
-        android:textColor="#C5B5AC"
+        android:letterSpacing="0.18"
+        android:text="YOUR CAMPUS FOOD COMPANION"
+        android:textColor="#A49A96"
         android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

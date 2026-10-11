@@ -16,6 +16,10 @@ class CategoryAdapter(
 
     private var selectedCategory = "All"
 
+    private val orange = Color.rgb(255, 75, 32)
+    private val darkText = Color.rgb(45, 40, 37)
+    private val borderColor = Color.rgb(255, 224, 211)
+
     inner class CategoryViewHolder(
         val container: LinearLayout,
         val title: TextView
@@ -27,15 +31,24 @@ class CategoryAdapter(
     ): CategoryViewHolder {
 
         val container = LinearLayout(parent.context).apply {
-            orientation = LinearLayout.VERTICAL
+            orientation = LinearLayout.HORIZONTAL
             gravity = Gravity.CENTER
-            setPadding(18, 12, 18, 12)
+            setPadding(
+                dp(parent, 16),
+                dp(parent, 10),
+                dp(parent, 16),
+                dp(parent, 10)
+            )
+
+            isClickable = true
+            isFocusable = true
         }
 
         val title = TextView(parent.context).apply {
             textSize = 14f
             gravity = Gravity.CENTER
             setTypeface(null, Typeface.BOLD)
+            maxLines = 1
         }
 
         container.addView(
@@ -48,10 +61,10 @@ class CategoryAdapter(
 
         val params = RecyclerView.LayoutParams(
             ViewGroup.LayoutParams.WRAP_CONTENT,
-            ViewGroup.LayoutParams.WRAP_CONTENT
+            dp(parent, 48)
         )
 
-        params.setMargins(0, 0, 10, 0)
+        params.marginEnd = dp(parent, 10)
         container.layoutParams = params
 
         return CategoryViewHolder(container, title)
@@ -63,52 +76,52 @@ class CategoryAdapter(
     ) {
 
         val category = categories[position]
-        holder.title.text = category
-
         val isSelected = category == selectedCategory
 
+        holder.title.text = category
+
         val background = GradientDrawable().apply {
-            cornerRadius = 40f
+            shape = GradientDrawable.RECTANGLE
+            cornerRadius = dp(holder.container, 24).toFloat()
 
             setColor(
-                if (isSelected) {
-                    Color.rgb(255, 107, 53)
-                } else {
-                    Color.WHITE
-                }
+                if (isSelected) orange else Color.WHITE
             )
 
             if (!isSelected) {
-                setStroke(2, Color.rgb(255, 224, 211))
+                setStroke(dp(holder.container, 1), borderColor)
             }
         }
 
         holder.container.background = background
 
         holder.title.setTextColor(
-            if (isSelected) {
-                Color.WHITE
-            } else {
-                Color.rgb(65, 55, 50)
-            }
+            if (isSelected) Color.WHITE else darkText
         )
 
         holder.container.setOnClickListener {
+            val previousPosition = categories.indexOf(selectedCategory)
 
-            val previousCategory = selectedCategory
+            if (selectedCategory == category) return@setOnClickListener
+
             selectedCategory = category
-
-            val previousPosition = categories.indexOf(previousCategory)
 
             if (previousPosition >= 0) {
                 notifyItemChanged(previousPosition)
             }
 
-            notifyItemChanged(position)
+            notifyItemChanged(holder.bindingAdapterPosition)
 
             onCategoryClick(category)
         }
     }
 
     override fun getItemCount(): Int = categories.size
+
+    private fun dp(
+        view: android.view.View,
+        value: Int
+    ): Int {
+        return (value * view.resources.displayMetrics.density).toInt()
+    }
 }

@@ -8,9 +8,10 @@
     android:layout_height="wrap_content"
     android:layout_margin="6dp"
 
-    app:cardCornerRadius="14dp"
-    app:cardElevation="3dp"
-    app:cardBackgroundColor="#FFFFFF">
+    app:cardCornerRadius="18dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="#FFFFFF"
+    app:cardUseCompatPadding="false">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -18,21 +19,43 @@
         android:orientation="vertical">
 
         <!-- Food Image -->
-        <ImageView
-            android:id="@+id/ivFood"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="115dp"
-            android:background="#FFE0D3"
-            android:contentDescription="Food image"
-            android:scaleType="centerCrop"
-            android:src="@android:drawable/ic_menu_gallery" />
+            android:layout_height="135dp">
+
+            <ImageView
+                android:id="@+id/ivFood"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#FFE5D9"
+                android:contentDescription="Food image"
+                android:scaleType="centerCrop"
+                android:src="@android:drawable/ic_menu_gallery" />
+
+            <!-- Small Popular Badge -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|start"
+                android:layout_margin="8dp"
+                android:background="@drawable/food_badge_background"
+                android:paddingStart="9dp"
+                android:paddingTop="5dp"
+                android:paddingEnd="9dp"
+                android:paddingBottom="5dp"
+                android:text="POPULAR"
+                android:textColor="#FF4B20"
+                android:textSize="9sp"
+                android:textStyle="bold" />
+
+        </FrameLayout>
 
         <!-- Food Information -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:padding="10dp">
+            android:padding="12dp">
 
             <!-- Food Name -->
             <TextView
@@ -40,7 +63,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="Margherita Pizza"
-                android:textColor="#222222"
+                android:textColor="#171717"
                 android:textSize="15sp"
                 android:textStyle="bold"
                 android:maxLines="1"
@@ -51,18 +74,19 @@
                 android:id="@+id/tvFoodDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="Cheese &amp; tomato"
-                android:textColor="#777777"
+                android:layout_marginTop="5dp"
+                android:text="Cheese and tomato"
+                android:textColor="#888888"
                 android:textSize="12sp"
-                android:maxLines="1"
+                android:maxLines="2"
+                android:minLines="1"
                 android:ellipsize="end" />
 
             <!-- Price and Add Button -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="12dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
@@ -72,20 +96,23 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:text="₹199"
-                    android:textColor="#FF6B35"
-                    android:textSize="15sp"
+                    android:textColor="#FF4B20"
+                    android:textSize="17sp"
                     android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/tvAdd"
-                    android:layout_width="32dp"
-                    android:layout_height="32dp"
-                    android:background="#FF6B35"
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:background="@drawable/food_add_button_background"
                     android:gravity="center"
                     android:text="+"
                     android:textColor="#FFFFFF"
-                    android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textSize="24sp"
+                    android:textStyle="normal"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:contentDescription="Add food" />
 
             </LinearLayout>
 

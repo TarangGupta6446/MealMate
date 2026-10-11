@@ -6,98 +6,137 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFF8F3"
+    android:background="#FFF8F0"
     tools:context=".HomeActivity">
 
-    <!-- Main Header -->
-    <TextView
-        android:id="@+id/tvHello"
-        android:layout_width="wrap_content"
+    <!-- Header -->
+    <LinearLayout
+        android:id="@+id/headerSection"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="26dp"
-        android:text="MealMate"
-        android:textColor="#FF6B35"
-        android:textSize="30sp"
-        android:textStyle="bold"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="24dp"
+        android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-    <!-- Header Subtitle -->
-    <TextView
-        android:id="@+id/tvUserName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="4dp"
-        android:text="What would you like to eat today?"
-        android:textColor="#777777"
-        android:textSize="14sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvHello" />
+        <!-- MealMate Branding -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tvHello"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Meal"
+                android:textColor="#171717"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:fontFamily="sans" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mate"
+                android:textColor="#FF4B20"
+                android:textSize="34sp"
+                android:textStyle="bold"
+                android:fontFamily="sans" />
+
+        </LinearLayout>
+
+        <!-- Campus Companion -->
+        <TextView
+            android:id="@+id/tvBrandSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:letterSpacing="0.20"
+            android:text="CAMPUS COMPANION"
+            android:textColor="#777777"
+            android:textSize="12sp"
+            android:textStyle="bold" />
+
+        <!-- Tagline -->
+        <TextView
+            android:id="@+id/tvUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Order Food  •  Eat Better  •  Live Smarter"
+            android:textColor="#777777"
+            android:textSize="13sp" />
+
+    </LinearLayout>
 
     <!-- Search Bar -->
     <EditText
         android:id="@+id/etSearch"
         android:layout_width="0dp"
-        android:layout_height="52dp"
+        android:layout_height="54dp"
         android:layout_marginStart="24dp"
         android:layout_marginTop="22dp"
         android:layout_marginEnd="24dp"
         android:background="@drawable/search_background"
+        android:drawableStart="@android:drawable/ic_menu_search"
+        android:drawablePadding="12dp"
         android:hint="Search for food..."
+        android:imeOptions="actionSearch"
         android:inputType="text"
-        android:paddingStart="16dp"
-        android:paddingEnd="16dp"
-        android:textColor="#222222"
+        android:paddingStart="18dp"
+        android:paddingEnd="18dp"
+        android:singleLine="true"
+        android:textColor="#171717"
         android:textColorHint="#888888"
         android:textSize="15sp"
-        android:singleLine="true"
-        android:drawableStart="@android:drawable/ic_menu_search"
-        android:drawablePadding="10dp"
-        android:imeOptions="actionSearch"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:elevation="3dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvUserName" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/headerSection" />
 
-    <!-- Categories Title -->
+    <!-- Categories Heading -->
     <TextView
         android:id="@+id/tvCategories"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="24dp"
         android:text="Categories"
-        android:textColor="#222222"
-        android:textSize="19sp"
+        android:textColor="#171717"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/etSearch" />
 
-    <!-- Categories RecyclerView -->
+    <!-- Categories -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvCategories"
         android:layout_width="0dp"
-        android:layout_height="85dp"
-        android:layout_marginTop="10dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="6dp"
         android:clipToPadding="false"
-        android:paddingStart="24dp"
-        android:paddingEnd="24dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvCategories"
         tools:listitem="@layout/item_category" />
 
-    <!-- Popular Food Title -->
+    <!-- Popular Food Heading -->
     <TextView
         android:id="@+id/tvPopular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="8dp"
         android:text="Popular Food"
-        android:textColor="#222222"
-        android:textSize="19sp"
+        android:textColor="#171717"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/rvCategories" />
@@ -108,85 +147,165 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="24dp"
-        android:text="See All"
-        android:textColor="#FF6B35"
-        android:textSize="14sp"
-        android:textStyle="bold"
         android:clickable="true"
         android:focusable="true"
-        app:layout_constraintBottom_toBottomOf="@id/tvPopular"
+        android:text="See All"
+        android:textColor="#FF4B20"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/tvPopular" />
+        app:layout_constraintTop_toTopOf="@id/tvPopular"
+        app:layout_constraintBottom_toBottomOf="@id/tvPopular" />
 
-    <!-- Food RecyclerView -->
+    <!-- Food Grid -->
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvFood"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="12dp"
+        android:clipChildren="false"
         android:clipToPadding="false"
         android:paddingStart="12dp"
         android:paddingEnd="12dp"
         android:paddingBottom="12dp"
-        android:clipChildren="false"
-        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/tvPopular"
+        app:layout_constraintBottom_toTopOf="@id/bottomNavigation"
         tools:listitem="@layout/item_food" />
 
     <!-- Bottom Navigation -->
     <LinearLayout
         android:id="@+id/bottomNavigation"
         android:layout_width="0dp"
-        android:layout_height="65dp"
+        android:layout_height="72dp"
         android:background="#FFFFFF"
+        android:elevation="8dp"
         android:gravity="center"
         android:orientation="horizontal"
-        android:elevation="8dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
+        app:layout_constraintBottom_toBottomOf="parent">
 
-        <TextView
+        <!-- Home -->
+        <LinearLayout
             android:id="@+id/navHome"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
             android:gravity="center"
-            android:text="⌂\nHome"
-            android:textColor="#FF6B35"
-            android:textSize="13sp" />
+            android:orientation="vertical">
 
-        <TextView
+            <ImageView
+                android:id="@+id/navHomeIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Home"
+                android:src="@drawable/ic_home"
+                app:tint="#FF4B20" />
+
+            <TextView
+                android:id="@+id/navHomeLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Home"
+                android:textColor="#FF4B20"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <!-- Cart -->
+        <LinearLayout
             android:id="@+id/navCart"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
             android:gravity="center"
-            android:text="🛒\nCart"
-            android:textColor="#777777"
-            android:textSize="13sp" />
+            android:orientation="vertical">
 
-        <TextView
+            <ImageView
+                android:id="@+id/navCartIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Cart"
+                android:src="@drawable/ic_shopping_cart"
+                app:tint="#827773" />
+
+            <TextView
+                android:id="@+id/navCartLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Cart"
+                android:textColor="#827773"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <!-- Orders -->
+        <LinearLayout
             android:id="@+id/navOrders"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
             android:gravity="center"
-            android:text="📋\nOrders"
-            android:textColor="#777777"
-            android:textSize="13sp" />
+            android:orientation="vertical">
 
-        <TextView
+            <ImageView
+                android:id="@+id/navOrdersIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Orders"
+                android:src="@drawable/ic_orders"
+                app:tint="#827773" />
+
+            <TextView
+                android:id="@+id/navOrdersLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Orders"
+                android:textColor="#827773"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+        <!-- Profile -->
+        <LinearLayout
             android:id="@+id/navProfile"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:clickable="true"
+            android:focusable="true"
             android:gravity="center"
-            android:text="👤\nProfile"
-            android:textColor="#777777"
-            android:textSize="13sp" />
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/navProfileIcon"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:contentDescription="Profile"
+                android:src="@drawable/ic_profile"
+                app:tint="#827773" />
+
+            <TextView
+                android:id="@+id/navProfileLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="Profile"
+                android:textColor="#827773"
+                android:textSize="12sp" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

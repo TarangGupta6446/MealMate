@@ -4,58 +4,136 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/bottomNavigation"
     android:layout_width="match_parent"
-    android:layout_height="65dp"
-    android:background="#FFFFFF"
-    android:gravity="center"
+    android:layout_height="72dp"
     android:orientation="horizontal"
-    android:elevation="8dp">
+    android:gravity="center"
+    android:background="#FFFFFF"
+    android:elevation="8dp"
+    android:paddingTop="6dp"
+    android:paddingBottom="4dp">
 
-    <TextView
+    <!-- Home -->
+    <LinearLayout
         android:id="@+id/navHome"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:orientation="vertical"
         android:gravity="center"
         android:clickable="true"
         android:focusable="true"
-        android:text="⌂\nHome"
-        android:textColor="#777777"
-        android:textSize="13sp" />
+        android:background="?attr/selectableItemBackground">
 
-    <TextView
+        <ImageView
+            android:id="@+id/navHomeIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_home"
+            android:contentDescription="Home"
+            android:tint="#827773" />
+
+        <TextView
+            android:id="@+id/navHomeLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Home"
+            android:textSize="12sp"
+            android:textColor="#827773" />
+
+    </LinearLayout>
+
+    <!-- Cart -->
+    <LinearLayout
         android:id="@+id/navCart"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:orientation="vertical"
         android:gravity="center"
         android:clickable="true"
         android:focusable="true"
-        android:text="🛒\nCart"
-        android:textColor="#777777"
-        android:textSize="13sp" />
+        android:background="?attr/selectableItemBackground">
 
-    <TextView
+        <ImageView
+            android:id="@+id/navCartIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_shopping_cart"
+            android:contentDescription="Cart"
+            android:tint="#827773" />
+
+        <TextView
+            android:id="@+id/navCartLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Cart"
+            android:textSize="12sp"
+            android:textColor="#827773" />
+
+    </LinearLayout>
+
+    <!-- Orders -->
+    <LinearLayout
         android:id="@+id/navOrders"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:orientation="vertical"
         android:gravity="center"
         android:clickable="true"
         android:focusable="true"
-        android:text="📋\nOrders"
-        android:textColor="#777777"
-        android:textSize="13sp" />
+        android:background="?attr/selectableItemBackground">
 
-    <TextView
+        <ImageView
+            android:id="@+id/navOrdersIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_orders"
+            android:contentDescription="Orders"
+            android:tint="#827773" />
+
+        <TextView
+            android:id="@+id/navOrdersLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Orders"
+            android:textSize="12sp"
+            android:textColor="#827773" />
+
+    </LinearLayout>
+
+    <!-- Profile -->
+    <LinearLayout
         android:id="@+id/navProfile"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:orientation="vertical"
         android:gravity="center"
         android:clickable="true"
         android:focusable="true"
-        android:text="👤\nProfile"
-        android:textColor="#777777"
-        android:textSize="13sp" />
+        android:background="?attr/selectableItemBackground">
+
+        <ImageView
+            android:id="@+id/navProfileIcon"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/ic_profile"
+            android:contentDescription="Profile"
+            android:tint="#827773" />
+
+        <TextView
+            android:id="@+id/navProfileLabel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:text="Profile"
+            android:textSize="12sp"
+            android:textColor="#827773" />
+
+    </LinearLayout>
 
 </LinearLayout>

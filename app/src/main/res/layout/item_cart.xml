@@ -51,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="5dp"
                 android:text="₹199"
-                android:textColor="#FF6B35"
+                android:textColor="#FF4B20"
                 android:textSize="15sp"
                 android:textStyle="bold" />
 
@@ -69,7 +69,7 @@
                     android:layout_height="30dp"
                     android:gravity="center"
                     android:text="−"
-                    android:textColor="#FF6B35"
+                    android:textColor="#FF4B20"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 
@@ -89,7 +89,7 @@
                     android:layout_height="30dp"
                     android:gravity="center"
                     android:text="+"
-                    android:textColor="#FF6B35"
+                    android:textColor="#FF4B20"
                     android:textSize="18sp"
                     android:textStyle="bold" />
 

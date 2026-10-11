@@ -12,27 +12,54 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:gravity="center_horizontal"
+        android:paddingStart="28dp"
+        android:paddingEnd="28dp"
+        android:paddingTop="28dp"
+        android:paddingBottom="32dp">
 
-        <!-- App Name -->
+        <!-- MealMate Logo -->
+        <ImageView
+            android:layout_width="82dp"
+            android:layout_height="82dp"
+            android:src="@drawable/serving_dish"
+            android:scaleType="fitCenter"
+            android:contentDescription="MealMate logo" />
+
+        <!-- Brand Name: Meal in black, Mate in orange -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/tvMealMate"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Meal"
+                android:textColor="#171717"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Mate"
+                android:textColor="#FF4B20"
+                android:textSize="32sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+
+        <!-- Registration Heading -->
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="40dp"
-            android:text="MealMate"
-            android:textColor="#FF6B35"
-            android:textSize="34sp"
-            android:textStyle="bold" />
-
-        <!-- Title -->
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="12dp"
+            android:layout_marginTop="20dp"
             android:text="Create Account"
-            android:textColor="#222222"
+            android:textColor="#171717"
             android:textSize="26sp"
             android:textStyle="bold" />
 
@@ -40,17 +67,17 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="8dp"
-            android:text="Join MealMate today"
-            android:textColor="#777777"
-            android:textSize="15sp" />
+            android:layout_marginTop="7dp"
+            android:gravity="center"
+            android:text="Join MealMate and enjoy your favourite food."
+            android:textColor="#827773"
+            android:textSize="14sp" />
 
         <!-- Full Name Label -->
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="35dp"
+            android:layout_marginTop="27dp"
             android:text="Full Name"
             android:textColor="#333333"
             android:textSize="14sp"
@@ -60,25 +87,25 @@
         <EditText
             android:id="@+id/etName"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="54dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/search_background"
+            android:background="@drawable/login_input_background"
             android:hint="Enter your full name"
             android:inputType="textPersonName|textCapWords"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:textColor="#222222"
-            android:textColorHint="#888888"
-            android:textSize="16sp"
+            android:textColorHint="#A49A96"
+            android:textSize="15sp"
             android:singleLine="true"
             android:autofillHints="name" />
 
         <!-- Email Label -->
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
-            android:text="Email"
+            android:layout_marginTop="17dp"
+            android:text="Email Address"
             android:textColor="#333333"
             android:textSize="14sp"
             android:textStyle="bold" />
@@ -87,24 +114,24 @@
         <EditText
             android:id="@+id/etEmail"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="54dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/search_background"
+            android:background="@drawable/login_input_background"
             android:hint="Enter your email"
             android:inputType="textEmailAddress"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:textColor="#222222"
-            android:textColorHint="#888888"
-            android:textSize="16sp"
+            android:textColorHint="#A49A96"
+            android:textSize="15sp"
             android:singleLine="true"
             android:autofillHints="emailAddress" />
 
         <!-- Password Label -->
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="18dp"
+            android:layout_marginTop="17dp"
             android:text="Password"
             android:textColor="#333333"
             android:textSize="14sp"
@@ -114,45 +141,61 @@
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
+            android:layout_height="54dp"
             android:layout_marginTop="8dp"
-            android:background="@drawable/search_background"
+            android:background="@drawable/login_input_background"
             android:hint="Create a password"
             android:inputType="textPassword"
             android:paddingStart="16dp"
             android:paddingEnd="16dp"
             android:textColor="#222222"
-            android:textColorHint="#888888"
-            android:textSize="16sp"
+            android:textColorHint="#A49A96"
+            android:textSize="15sp"
             android:singleLine="true"
             android:autofillHints="newPassword" />
 
-        <!-- Register Button -->
+        <!-- Create Account Button -->
         <Button
             android:id="@+id/btnRegister"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_marginTop="28dp"
-            android:backgroundTint="#FF6B35"
-            android:text="CREATE ACCOUNT"
+            android:layout_height="56dp"
+            android:layout_marginTop="26dp"
+            android:backgroundTint="#FF4B20"
+            android:elevation="3dp"
+            android:text="Create Account"
             android:textAllCaps="false"
             android:textColor="#FFFFFF"
             android:textSize="16sp"
             android:textStyle="bold" />
 
-        <!-- Login Link -->
-        <TextView
-            android:id="@+id/tvLogin"
+        <!-- Existing Account Prompt -->
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="22dp"
-            android:layout_marginBottom="24dp"
-            android:padding="10dp"
-            android:text="Already have an account? Login"
-            android:textColor="#FF6B35"
-            android:textSize="14sp"
-            android:textStyle="bold" />
+            android:layout_marginTop="20dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Already have an account? "
+                android:textColor="#827773"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/tvLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:padding="5dp"
+                android:text="Login"
+                android:textColor="#FF4B20"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                android:clickable="true"
+                android:focusable="true" />
+
+        </LinearLayout>
 
     </LinearLayout>
 

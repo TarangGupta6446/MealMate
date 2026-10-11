@@ -3,23 +3,27 @@
 <androidx.cardview.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+
     android:layout_width="match_parent"
-    android:layout_height="145dp"
-    android:layout_marginBottom="12dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="14dp"
+
     app:cardBackgroundColor="#FFFFFF"
-    app:cardCornerRadius="16dp"
-    app:cardElevation="3dp">
+    app:cardCornerRadius="20dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="false">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="15dp">
+        android:padding="18dp">
 
-        <!-- Order ID + Status -->
+        <!-- Order ID and Status -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
@@ -28,17 +32,24 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="#MM1024"
-                android:textColor="#222222"
-                android:textSize="16sp"
-                android:textStyle="bold" />
+                android:textColor="#171717"
+                android:textSize="17sp"
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end" />
 
             <TextView
                 android:id="@+id/tvOrderStatus"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:background="@drawable/order_status_background"
+                android:paddingStart="10dp"
+                android:paddingTop="6dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="6dp"
                 android:text="Preparing"
-                android:textColor="#FF6B35"
-                android:textSize="14sp"
+                android:textColor="#FF4B20"
+                android:textSize="12sp"
                 android:textStyle="bold" />
 
         </LinearLayout>
@@ -48,16 +59,27 @@
             android:id="@+id/tvOrderFood"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="14dp"
             android:text="Margherita Pizza × 2"
-            android:textColor="#555555"
-            android:textSize="14sp" />
+            android:textColor="#55504D"
+            android:textSize="14sp"
+            android:lineSpacingExtra="3dp"
+            android:maxLines="2"
+            android:ellipsize="end" />
 
-        <!-- Date + Total -->
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="14dp"
+            android:background="#F2E9E2" />
+
+        <!-- Order Date and Amount -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="12dp"
+            android:gravity="center_vertical"
             android:orientation="horizontal">
 
             <TextView
@@ -66,16 +88,17 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="19 Aug 2026"
-                android:textColor="#888888"
-                android:textSize="13sp" />
+                android:textColor="#827773"
+                android:textSize="12sp"
+                android:maxLines="2" />
 
             <TextView
                 android:id="@+id/tvOrderAmount"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="₹438"
-                android:textColor="#FF6B35"
-                android:textSize="16sp"
+                android:textColor="#FF4B20"
+                android:textSize="18sp"
                 android:textStyle="bold" />
 
         </LinearLayout>

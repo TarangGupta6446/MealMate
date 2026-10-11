@@ -16,195 +16,374 @@
         android:layout_height="0dp"
         android:fillViewport="true"
         android:clipToPadding="false"
-        android:paddingBottom="16dp"
+        android:overScrollMode="never"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintBottom_toTopOf="@id/bottomNavigationInclude"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingBottom="16dp">
+            android:orientation="vertical"
+            android:paddingStart="24dp"
+            android:paddingTop="24dp"
+            android:paddingEnd="24dp"
+            android:paddingBottom="20dp">
 
-            <!-- Page Title -->
+            <!-- Page Heading -->
             <TextView
                 android:id="@+id/tvProfileTitle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="24dp"
                 android:text="My Profile"
-                android:textColor="#222222"
-                android:textSize="28sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                android:textColor="#171717"
+                android:textSize="30sp"
+                android:textStyle="bold" />
+
+            <!-- Orange Heading Accent -->
+            <View
+                android:layout_width="64dp"
+                android:layout_height="4dp"
+                android:layout_marginTop="8dp"
+                android:background="#FF6B35" />
 
             <!-- Profile Avatar -->
-            <TextView
-                android:id="@+id/tvProfileIcon"
-                android:layout_width="94dp"
-                android:layout_height="94dp"
-                android:layout_marginTop="32dp"
-                android:background="#FFE0D3"
-                android:gravity="center"
-                android:text="👤"
-                android:textSize="42sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvProfileTitle" />
+            <FrameLayout
+                android:layout_width="112dp"
+                android:layout_height="112dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="24dp">
+
+                <ImageView
+                    android:id="@+id/ivProfileAvatar"
+                    android:layout_width="104dp"
+                    android:layout_height="104dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/profile_avatar_background"
+                    android:contentDescription="Profile avatar"
+                    android:padding="20dp"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/ic_user" />
+
+            </FrameLayout>
 
             <!-- User Name -->
             <TextView
                 android:id="@+id/tvProfileName"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="16dp"
-                android:text="User Name"
-                android:textColor="#222222"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:text="MealMate User"
+                android:textColor="#171717"
                 android:textSize="23sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvProfileIcon" />
+                android:maxLines="2"
+                android:ellipsize="end" />
 
             <!-- User Email -->
             <TextView
                 android:id="@+id/tvProfileEmail"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="24dp"
-                android:layout_marginTop="6dp"
-                android:layout_marginEnd="24dp"
+                android:layout_marginTop="5dp"
                 android:gravity="center"
                 android:text="user@example.com"
-                android:textColor="#777777"
+                android:textColor="#827773"
                 android:textSize="14sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvProfileName" />
+                android:maxLines="2"
+                android:ellipsize="end" />
 
-            <!-- Account Section Label -->
+            <!-- Account Settings Heading -->
             <TextView
                 android:id="@+id/tvAccountSettings"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="26dp"
-                android:layout_marginTop="28dp"
+                android:layout_marginTop="30dp"
                 android:text="ACCOUNT SETTINGS"
-                android:textColor="#999999"
+                android:textColor="#827773"
                 android:textSize="12sp"
                 android:textStyle="bold"
-                android:letterSpacing="0.08"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvProfileEmail" />
+                android:letterSpacing="0.08" />
 
-            <!-- Profile Options Card -->
+            <!-- Account Options Card -->
             <androidx.cardview.widget.CardView
                 android:id="@+id/profileOptionsCard"
-                android:layout_width="0dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="22dp"
                 android:layout_marginTop="12dp"
-                android:layout_marginEnd="22dp"
                 app:cardBackgroundColor="#FFFFFF"
-                app:cardCornerRadius="18dp"
+                app:cardCornerRadius="20dp"
                 app:cardElevation="3dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvAccountSettings">
+                app:cardUseCompatPadding="false">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical"
-                    android:paddingStart="8dp"
-                    android:paddingEnd="8dp"
-                    android:paddingTop="4dp"
-                    android:paddingBottom="4dp">
+                    android:paddingStart="10dp"
+                    android:paddingEnd="10dp"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp">
 
                     <!-- Edit Profile -->
-                    <TextView
-                        android:id="@+id/tvEditProfile"
+                    <LinearLayout
+                        android:id="@+id/rowEditProfile"
                         android:layout_width="match_parent"
-                        android:layout_height="58dp"
-                        android:gravity="center_vertical"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="✎     Edit Profile"
-                        android:textColor="#333333"
-                        android:textSize="16sp"
-                        android:background="?android:attr/selectableItemBackground"
+                        android:layout_height="76dp"
+                        android:background="?attr/selectableItemBackground"
                         android:clickable="true"
-                        android:focusable="true" />
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="12dp">
+
+                        <FrameLayout
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/profile_avatar_background"
+                            android:padding="12dp">
+
+                            <ImageView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:contentDescription="Edit profile icon"
+                                android:src="@drawable/ic_user" />
+
+                        </FrameLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvEditProfile"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Edit Profile"
+                                android:textColor="#171717"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:text="Update your personal information"
+                                android:textColor="#827773"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="›"
+                            android:textColor="#99918D"
+                            android:textSize="28sp" />
+
+                    </LinearLayout>
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginStart="14dp"
-                        android:layout_marginEnd="14dp"
-                        android:background="#F0E7E1" />
+                        android:layout_marginStart="58dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="#F2E9E2" />
 
                     <!-- Delivery Address -->
-                    <TextView
-                        android:id="@+id/tvAddress"
+                    <LinearLayout
+                        android:id="@+id/rowDeliveryAddress"
                         android:layout_width="match_parent"
-                        android:layout_height="58dp"
-                        android:gravity="center_vertical"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="⌖     Delivery Address"
-                        android:textColor="#333333"
-                        android:textSize="16sp"
-                        android:background="?android:attr/selectableItemBackground"
+                        android:layout_height="76dp"
+                        android:background="?attr/selectableItemBackground"
                         android:clickable="true"
-                        android:focusable="true" />
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="12dp">
+
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/profile_avatar_background"
+                            android:contentDescription="Delivery address icon"
+                            android:padding="10dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_delivery_address" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvAddress"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Delivery Address"
+                                android:textColor="#171717"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:text="Manage your delivery details"
+                                android:textColor="#827773"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="›"
+                            android:textColor="#99918D"
+                            android:textSize="28sp" />
+
+                    </LinearLayout>
 
                     <View
                         android:layout_width="match_parent"
                         android:layout_height="1dp"
-                        android:layout_marginStart="14dp"
-                        android:layout_marginEnd="14dp"
-                        android:background="#F0E7E1" />
+                        android:layout_marginStart="58dp"
+                        android:layout_marginEnd="8dp"
+                        android:background="#F2E9E2" />
 
                     <!-- Settings -->
-                    <TextView
-                        android:id="@+id/tvSettings"
+                    <LinearLayout
+                        android:id="@+id/rowSettings"
                         android:layout_width="match_parent"
-                        android:layout_height="58dp"
-                        android:gravity="center_vertical"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="⚙     Settings"
-                        android:textColor="#333333"
-                        android:textSize="16sp"
-                        android:background="?android:attr/selectableItemBackground"
+                        android:layout_height="76dp"
+                        android:background="?attr/selectableItemBackground"
                         android:clickable="true"
-                        android:focusable="true" />
+                        android:focusable="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="12dp">
 
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
+                        <ImageView
+                            android:layout_width="48dp"
+                            android:layout_height="48dp"
+                            android:background="@drawable/profile_avatar_background"
+                            android:contentDescription="Settings icon"
+                            android:padding="10dp"
+                            android:scaleType="fitCenter"
+                            android:src="@drawable/ic_settings" />
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="14dp"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:id="@+id/tvSettings"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:text="Settings"
+                                android:textColor="#171717"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="3dp"
+                                android:text="App preferences and privacy"
+                                android:textColor="#827773"
+                                android:textSize="12sp" />
+
+                        </LinearLayout>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="›"
+                            android:textColor="#99918D"
+                            android:textSize="28sp" />
+
+                    </LinearLayout>
+
+                </LinearLayout>
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Separate Logout Card -->
+            <androidx.cardview.widget.CardView
+                android:id="@+id/logoutCard"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="#FFFFFF"
+                app:cardCornerRadius="20dp"
+                app:cardElevation="3dp"
+                app:cardUseCompatPadding="false">
+
+                <LinearLayout
+                    android:id="@+id/logoutRow"
+                    android:layout_width="match_parent"
+                    android:layout_height="84dp"
+                    android:background="?attr/selectableItemBackground"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal"
+                    android:paddingStart="20dp"
+                    android:paddingEnd="18dp">
+
+                    <ImageView
+                        android:id="@+id/ivLogout"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:contentDescription="Logout"
+                        android:scaleType="fitCenter"
+                        android:src="@drawable/ic_logout" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_marginStart="14dp"
-                        android:layout_marginEnd="14dp"
-                        android:background="#F0E7E1" />
+                        android:layout_weight="1"
+                        android:orientation="vertical">
 
-                    <!-- Logout -->
+                        <TextView
+                            android:id="@+id/tvLogout"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="Logout"
+                            android:textColor="#E93636"
+                            android:textSize="16sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="3dp"
+                            android:text="Sign out from your account"
+                            android:textColor="#827773"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
                     <TextView
-                        android:id="@+id/tvLogout"
-                        android:layout_width="match_parent"
-                        android:layout_height="58dp"
-                        android:gravity="center_vertical"
-                        android:paddingStart="16dp"
-                        android:paddingEnd="16dp"
-                        android:text="↪     Logout"
-                        android:textColor="#E53935"
-                        android:textSize="16sp"
-                        android:textStyle="bold"
-                        android:background="?android:attr/selectableItemBackground"
-                        android:clickable="true"
-                        android:focusable="true" />
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="›"
+                        android:textColor="#99918D"
+                        android:textSize="28sp" />
 
                 </LinearLayout>
 
@@ -215,15 +394,13 @@
                 android:id="@+id/tvVersion"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="18dp"
                 android:text="MealMate  •  Version 1.0"
-                android:textColor="#AAAAAA"
-                android:textSize="12sp"
-                app:layout_constraintTop_toBottomOf="@id/profileOptionsCard"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent" />
+                android:textColor="#A69A94"
+                android:textSize="12sp" />
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
 
     </ScrollView>
 

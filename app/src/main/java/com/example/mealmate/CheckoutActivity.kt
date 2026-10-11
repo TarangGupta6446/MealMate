@@ -39,6 +39,9 @@ class CheckoutActivity : AppCompatActivity() {
 
         ImmersiveMode.enable(this)
         setContentView(R.layout.activity_checkout)
+        findViewById<android.view.View>(R.id.tvCheckoutBack).setOnClickListener {
+            finish()
+        }
 
         etAddress = findViewById(R.id.etAddress)
         etPhone = findViewById(R.id.etPhone)

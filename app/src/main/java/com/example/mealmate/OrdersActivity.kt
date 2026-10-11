@@ -36,6 +36,9 @@ class OrdersActivity : BaseNavigationActivity() {
 
         ImmersiveMode.enable(this)
         setContentView(R.layout.activity_orders)
+        findViewById<TextView>(R.id.btnBackOrders).setOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
 
         auth = FirebaseAuth.getInstance()
         db = FirebaseFirestore.getInstance()

@@ -55,6 +55,10 @@ class OrderDetailsActivity : AppCompatActivity() {
 
         ImmersiveMode.enable(this)
         setContentView(R.layout.activity_order_details)
+        findViewById<android.view.View>(R.id.tvOrderDetailsBack)
+            .setOnClickListener {
+                finish()
+            }
 
         // Initialize order detail views
         tvDetailOrderId = findViewById(R.id.tvDetailOrderId)
@@ -429,35 +433,48 @@ class OrderDetailsActivity : AppCompatActivity() {
         current: Boolean,
         number: String
     ) {
-
-        val icon = findViewById<TextView>(iconId)
+        val icon = findViewById<android.widget.ImageView>(iconId)
         val title = findViewById<TextView>(titleId)
 
-        val isDelivered = current && number == "4"
+        val numberId = when (iconId) {
+            R.id.tvPlacedIcon -> R.id.tvPlacedNumber
+            R.id.tvPreparingIcon -> R.id.tvPreparingNumber
+            R.id.tvDeliveryIcon -> R.id.tvDeliveryNumber
+            R.id.tvDeliveredIcon -> R.id.tvDeliveredNumber
+            else -> return
+        }
 
-        icon.text = if (completed) "✓" else number
+        val numberView = findViewById<TextView>(numberId)
 
-        icon.setTextColor(
-            when {
-                isDelivered -> green
-                current -> orange
-                completed -> green
-                else -> grey
-            }
-        )
+        // Show a checkmark for completed stages.
+        // Keep the current stage highlighted in orange.
+        val isFinalDeliveredStage =
+            number == "4" && completed && current
 
-        icon.setBackgroundColor(
-            when {
-                isDelivered -> paleGreen
-                current -> paleOrange
-                completed -> paleGreen
-                else -> paleGrey
-            }
-        )
+        val showCheckmark =
+            completed && (!current || isFinalDeliveredStage)
+
+        if (showCheckmark) {
+            icon.visibility = View.VISIBLE
+            numberView.visibility = View.GONE
+            icon.setBackgroundColor(paleGreen)
+        } else {
+            icon.visibility = View.GONE
+            numberView.visibility = View.VISIBLE
+            numberView.text = number
+
+            numberView.setBackgroundColor(
+                if (current) paleOrange else paleGrey
+            )
+
+            numberView.setTextColor(
+                if (current) orange else grey
+            )
+        }
 
         title.setTextColor(
             when {
-                isDelivered -> green
+                current && number == "4" -> green
                 current -> orange
                 completed -> green
                 else -> grey

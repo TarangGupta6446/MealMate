@@ -7,6 +7,7 @@ import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import android.view.View
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -230,19 +231,20 @@ class HomeActivity : BaseNavigationActivity() {
     }
 
     private fun setupNavigation() {
-        findViewById<TextView>(R.id.navCart).setOnClickListener {
-            startActivity(Intent(this, CartActivity::class.java))
-        }
 
-        findViewById<TextView>(R.id.navHome).setOnClickListener {
+        findViewById<View>(R.id.navHome).setOnClickListener {
             // Already on Home
         }
 
-        findViewById<TextView>(R.id.navOrders).setOnClickListener {
+        findViewById<View>(R.id.navCart).setOnClickListener {
+            startActivity(Intent(this, CartActivity::class.java))
+        }
+
+        findViewById<View>(R.id.navOrders).setOnClickListener {
             startActivity(Intent(this, OrdersActivity::class.java))
         }
 
-        findViewById<TextView>(R.id.navProfile).setOnClickListener {
+        findViewById<View>(R.id.navProfile).setOnClickListener {
             startActivity(Intent(this, ProfileActivity::class.java))
         }
     }
