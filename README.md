@@ -28,21 +28,28 @@ MealMate is an Android food ordering application built using Kotlin, XML, and Fi
 
 ## 📱 App Screenshots
 
-### 🔐 Login Screen
-
-![MealMate Login](screenshots/login.jpeg)
-
-### 🍕 Food Menu
-
-![MealMate Menu](screenshots/menu.jpeg)
-
-### 🛒 Checkout
-
-![MealMate Checkout](screenshots/checkout.jpeg)
-
-### ✅ Order Success
-
-![MealMate Order Success](screenshots/order-success.jpeg)
+<table>
+  <tr>
+    <td align="center">
+      <strong>🔐 Login Screen</strong><br><br>
+      <img src="screenshots/login.jpeg" width="200" alt="MealMate Login Screen">
+    </td>
+    <td align="center">
+      <strong>🍕 Food Menu</strong><br><br>
+      <img src="screenshots/menu.jpeg" width="200" alt="MealMate Food Menu">
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <strong>🛒 Checkout</strong><br><br>
+      <img src="screenshots/checkout.jpeg" width="200" alt="MealMate Checkout Screen">
+    </td>
+    <td align="center">
+      <strong>✅ Order Success</strong><br><br>
+      <img src="screenshots/order-success.jpeg" width="200" alt="MealMate Order Success Screen">
+    </td>
+  </tr>
+</table>
 
 ## 📥 Download the App
 
