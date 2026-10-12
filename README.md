@@ -1,5 +1,11 @@
 <div align="center">
 
+<img src="assets/mealmate-banner.png" alt="MealMate - Campus Companion" width="100%">
+
+</div>
+
+<div align="center">
+
 # 🍔 MealMate
 
 ### Campus Companion — Online Food Ordering Android App
